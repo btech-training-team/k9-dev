@@ -20,8 +20,7 @@ pipeline {
       steps {
         container('kaniko') {
             sh """
-            ls -la simple-webapp
-            cat /etc/os-release
+            ls -la
         """
         }
       }
