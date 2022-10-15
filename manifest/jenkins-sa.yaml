@@ -5,6 +5,18 @@ metadata:
   namespace: jenkins
 
 ---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: jenkins-token
+  namespace: jenkins
+  annotations:
+    kubernetes.io/service-account.name: jenkins
+type: kubernetes.io/service-account-token
+
+---
+
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -28,6 +40,7 @@ rules:
   verbs: ["get"]
 
 ---
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
